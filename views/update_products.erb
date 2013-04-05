@@ -1,6 +1,8 @@
 <div class="button_container">
   <a href="/" class="my_button">Home</a>
-  <a href="/products" class="my_button">Return to Products</a>
+  <p>
+  <a href="/products" class="my_button">Product Home</a>
+  <a href="/new_product" class="my_button">Add Product</a>
 </div>
 
 <h1>Update Product: <%= @row[2] %></h1>
@@ -36,7 +38,7 @@
 </div>
 
 <!-- <form action="/update_products" method="post"> -->
-<form>
+<form action="/products/<%= @row[0] %>" method="post">
   <p>
   Product Name: <input type="text" name="product_name"/>
   <p>

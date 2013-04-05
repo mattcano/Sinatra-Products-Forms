@@ -1,8 +1,8 @@
-
-
 <div class="button_container">
-  <a href="/" class="my_button">Return Home</a>
-  <a href="/new_product" class="my_button">Create Another</a>
+  <a href="/" class="my_button">Home</a>
+  <p>
+  <a href="/products" class="my_button">Product Home</a>
+  <a href="/new_product" class="my_button">Add Product</a>
 </div>
 
 <h1>Product Updated!</h1>
@@ -10,3 +10,26 @@
 <p>
   The product has been Updated!
 <p>
+
+<div class="footer">(Note: click on an item to Update or Delete)</div>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Price</th>
+  </tr>
+  <% @rs2.each do |row| %>
+    <tr>
+      <td><a href="/products/<%= row[0] %>"><%= row[0] %></a></td>
+      <td><a href="/products/<%= row[0] %>"><%= row[2] %></a></td>
+      <td><a href="/products/<%= row[0] %>"><%= row[3] %></a></td>
+      <td>
+        <% if row[4] == "t"%>
+        <a href="/products/<%= row[0] %>"><img src="/sale_icon.png" class="sale_icon"></a>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+

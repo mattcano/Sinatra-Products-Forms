@@ -6,6 +6,11 @@ form {
   text-align: center;
 }
 
+.twit_container {
+  margin: auto;
+  text-align: center;
+}
+
 .footer{
   text-align: center;
   font-size: .85em;
