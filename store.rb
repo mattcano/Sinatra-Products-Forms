@@ -9,7 +9,28 @@ before do
   @db = SQLite3::Database.new "store.sqlite3"
   # db.results_as_hash = true
 end 
- 
+
+get '/' do
+  erb :home
+end
+
+get "/new_product" do
+  erb :new_product
+end
+
+post "/new_product" do
+  name = params[:product_name]
+  price = params[:product_price]
+  sale = params[:sale]
+  sql = "INSERT INTO products('name', 'price', 'on_sale') VALUES ('#{name}', '#{price}', '#{sale}')"
+  @rs = @db.execute(sql)  
+  # db2 = SQLite3::Database.new "store.sqlite3"
+  # db.results_as_hash = true
+  @rs2 = @db.execute("SELECT * FROM products;")
+  #make the product in to a db
+  erb :product_created
+end
+
 get '/users' do
   @rs = @db.execute('SELECT * FROM users;')
   erb :show_users
@@ -26,27 +47,33 @@ get "/products/:id" do
   erb :update_products
 end
 
-get "/new_product" do
-  erb :new_product
-end
-
-post "/new_product" do
+post "/update_products" do
+  id = params[:id]
   name = params[:product_name]
   price = params[:product_price]
   sale = params[:sale]
-  sql = "INSERT INTO products('name', 'price', 'on_sale') VALUES ('#{name}', '#{price}', '#{sale}')"
+  sql = "UPDATE products SET name = '#{name}', price = #{price}, on_sale = '#{sale}' WHERE id = #{id}"
   @rs = @db.execute(sql)
   # db2 = SQLite3::Database.new "store.sqlite3"
   # db.results_as_hash = true
   @rs2 = @db.execute("SELECT * FROM products;")
   #make the product in to a db
-  erb :product_created
+  erb :product_updated
 end
 
-get '/' do
-  erb :home
+get "/products/:id/destroy" do
+  id = params[:id]
+  @id = id
+  erb :product_deleted
 end
- 
+
+post "/products/:id/destroy" do
+  id = params[:id]
+  @id = id
+  sql = "DELETE FROM products WHERE id = #{id}"
+  @rs = @db.execute(sql)
+end
+
 =begin
  
   <form method='post' action='/create'>

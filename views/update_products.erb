@@ -3,6 +3,8 @@
   <a href="/products" class="my_button">Return to Products</a>
 </div>
 
+<h1>Update Product: <%= @row[2] %></h1>
+
 <table>
   <tr>
     <th>ID</th>
@@ -24,11 +26,17 @@
     </tr>
 </table>
 
+<!-- **How do I properly pass through the id variable (row[0])?!! **-->
+<p>
+  <%= params.inspect %>
+<p>
+
 <div class="button_container">
   <a href="/products/<%= @row[0] %>/destroy" class="my_button">  **Delete Product**  </a>
 </div>
 
-<form action="/update_products" method="post">
+<!-- <form action="/update_products" method="post"> -->
+<form>
   <p>
   Product Name: <input type="text" name="product_name"/>
   <p>
@@ -39,3 +47,5 @@
   <p>
   <button>Save it!</button>
 </form>
+
+<%= params.inspect %>
