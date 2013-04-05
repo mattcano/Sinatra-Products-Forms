@@ -1,0 +1,14 @@
+<div class="button_container"><a href="/" class="my_button">Home</a></div>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+  </tr>
+  <% @rs.each do |row| %>
+    <tr>
+      <td><%= row[0] %></td>
+      <td><%= row[2] %></td>
+    </tr>
+  <% end %>
+</table>

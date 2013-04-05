@@ -1,0 +1,101 @@
+html {
+  background-color: #dddddd;
+}
+
+form {
+  text-align: center;
+}
+
+.footer{
+  text-align: center;
+  font-size: .85em;
+  margin-top: 5px;
+}
+
+h1, h4{
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+th {
+  /*text-decoration: underline;*/
+  font-size: 1.5em;
+}
+
+tr {
+  height: 40px;
+}
+
+tr:nth-child(even){
+  background-color: #444245;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+td:first-child{
+  text-align: center;
+}
+
+td:nth-child(2){
+  padding-right: 50px;
+}
+
+td{
+  padding: 3px 20px;
+  font-size: 1.1em;
+}
+
+table {
+  border: 2px solid black;
+  border-spacing: 0;
+  margin-top: 10px;
+  padding: 10px;
+  margin: auto;
+  /*border-collapse: collapse; => this will cause padding to be irrelevant, but has broader browser compatibility*/
+}
+
+.sale_icon{
+  width: 30px;
+  height: auto;
+}
+
+.button_container{
+  margin: 0px auto;
+  text-align: center;
+}
+
+.my_button{
+  /*margin: auto;*/
+  margin-bottom: 8px;
+  box-shadow:inset 0px 1px 0px 0px #f29c93;
+  background-color:#fe1a00;
+  border-radius:6px;
+  border:1px solid #d83526;
+  display:inline-block;
+  color:#ffffff;
+  font-size:15px;
+  font-weight:bold;
+  padding:6px 24px;
+  text-decoration: none;
+  text-shadow:1px 1px 0px #b23e35;
+}
+
+.my_button:first-child{
+
+}
+
+.my_button:hover {
+  background-color:#ce0100;
+}
+
+.my_button:active {
+  position:relative;
+  top:1px;
+}
