@@ -11,26 +11,3 @@
 
 <%= params.inspect %>
 
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Price</th>
-    <th>Search</th>
-  </tr>
-  <% @rs2.each do |row| %>
-    <tr>
-      <td><a href="/products/<%= row[0] %>"><%= row[0] %></a></td>
-      <td><a href="/products/<%= row[0] %>"><%= row[2] %></a></td>
-      <td><a href="/products/<%= row[0] %>"><%= row[3] %></a></td>
-      <td>
-        <% if row[4] == "t"%>
-        <a href="/products/<%= row[0] %>"><img src="/sale_icon.png" class="sale_icon"></a>
-        <% end %>
-      </td>
-      <td>
-        <a href="/products/search?q=<%= URI.escape(row[2]) %>">Twitter Search<a>
-      </td>
-    </tr>
-  <% end %>
-</table>
